@@ -2,6 +2,7 @@ CREATE DATABASE dsrp_prestamos_financieros_6;
 GO
 
 USE dsrp_prestamos_financieros_6;
+-- Para ejecurtar todo el codigio saltandose las lineas de comentarios
 GO
 -- Personas naturales
 CREATE TABLE personas_naturales(
@@ -108,3 +109,22 @@ SELECT GETDATE();
 INSERT INTO pagos(codigo_operacion,monto_abonado) VALUES('0000001',100.00);
 INSERT INTO pagos VALUES('0000001',DEFAULT,200.00);
 SELECT*FROM pagos;
+
+--tipo_prestamos
+CREATE TABLE tipo_prestamos(
+id INT PRIMARY KEY IDENTITY(1,1),
+nombre VARCHAR(100) NOT NULL,
+descripcion TEXT NULL);
+
+--Empleados
+CREATE TABLE empleados(
+id INT PRIMARY KEY IDENTITY(1,1),
+persona_id INT NOT NULL,
+codigo_empleado VARCHAR(6) NOT NULL,
+cargo VARCHAR(100) NOT NULL,
+supervisor_id INT NULL,
+--Restriccion para relacion(FOREING KEY)
+CONSTRAINT FK_persona_natural_empleados FOREIGN KEY (persona_id) REFERENCES personas_naturales(id),
+CONSTRAINT FK_supervisor_empleado FOREIGN KEY (supervisor_id) REFERENCES empleados(id)
+);
+GO
