@@ -74,3 +74,15 @@ CREATE TABLE clientes(
 id INT PRIMARY KEY IDENTITY(1,1),
 tipo_persona VARCHAR(55) NOT NULL,
 persona_id INT NOT NULL);
+GO
+
+SELECT*FROM clientes;
+
+-- Restricciones de valores de columnas
+ALTER TABLE clientes
+ADD CONSTRAINT check_tipo_persona CHECK (tipo_persona IN('Persona Natural','Persona Juridica'))
+
+SELECT*FROM clientes;
+INSERT INTO clientes VALUES ('Persona Natural','1');
+SELECT*FROM clientes;
+
