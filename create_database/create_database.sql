@@ -77,7 +77,8 @@ persona_id INT NOT NULL);
 GO
 
 SELECT*FROM clientes;
-
+-- Resticciones de valores unico
+UNIQUE NOT NULL
 -- Restricciones de valores de columnas
 ALTER TABLE clientes
 ADD CONSTRAINT check_tipo_persona CHECK (tipo_persona IN('Persona Natural','Persona Juridica'))
@@ -86,3 +87,24 @@ SELECT*FROM clientes;
 INSERT INTO clientes VALUES ('Persona Natural','1');
 SELECT*FROM clientes;
 
+-- Sucursales
+CREATE TABLE sucursales(
+id INT PRIMARY KEY IDENTITY(1,1),
+codigo CHAR(6) NOT NULL,
+nombres VARCHAR(100) UNIQUE NOT NULL,
+direccion VARCHAR(255) NOT NULL);
+
+--Pagos
+CREATE TABLE pagos(
+id INT PRIMARY KEY IDENTITY(1,1),
+codigo_operacion VARCHAR(20) NOT NULL,
+--Fecha y hora actual GETDATE()
+fecha_pago DATETIME DEFAULT GETDATE(),
+monto_abonado MONEY NOT NULL);
+
+SELECT GETDATE();
+
+-- Insertar datos a las tablas especificas
+INSERT INTO pagos(codigo_operacion,monto_abonado) VALUES('0000001',100.00);
+INSERT INTO pagos VALUES('0000001',DEFAULT,200.00);
+SELECT*FROM pagos;
