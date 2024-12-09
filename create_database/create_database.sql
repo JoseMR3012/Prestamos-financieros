@@ -68,3 +68,9 @@ telefono VARCHAR(20) NOT NULL,
 direccion VARCHAR(255) NOT NULL
 );
 GO
+
+--Clientes
+CREATE TABLE clientes(
+id INT PRIMARY KEY IDENTITY(1,1),
+tipo_persona VARCHAR(55) NOT NULL,
+persona_id INT NOT NULL);
