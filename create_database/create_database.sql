@@ -164,3 +164,17 @@ estado VARCHAR(50) NOT NULL,
 monto_pendiente MONEY NOT NULL,
 CONSTRAINT FK_prestamo_cuota FOREIGN KEY(prestamo_id) REFERENCES prestamos(id)
 );
+
+SELECT*FROM cuotas;
+
+--detalle_pagos
+
+CREATE TABLE detalle_pagos(
+id INT PRIMARY KEY IDENTITY(1,1),
+cuota_id INT NOT NULL,
+pago_id INT NOT NULL,
+monto_afectado FLOAT NOT NULL,
+CONSTRAINT FK_cuotas_detalles_pagos FOREIGN KEY (cuota_id) REFERENCES cuotas(id),
+CONSTRAINT FK_pagos_detalles_pagos FOREIGN KEY (pago_id) REFERENCES pagos(id));
+
+
