@@ -37,5 +37,6 @@ Cada sucursal tiene un código único, dirección y gerente asignado.
 ## Modelo Lógico
 ![db_prestamos_1](https://github.com/user-attachments/assets/83cbf55b-68e0-4f77-8a58-3403127ce334)
 ## Modelo Físico
-![image](https://github.com/user-attachments/assets/46c7f5a1-f06e-43bf-acbb-ae3c8308d636)
+![image](https://github.com/user-attachments/assets/ebbb3a55-9a90-4244-a785-d0b6d767c3a1)
+
 
